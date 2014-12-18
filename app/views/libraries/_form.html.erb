@@ -1,10 +1,10 @@
-<%= form_for(@api) do |f| %>
-  <% if @api.errors.any? %>
+<%= form_for(@library) do |f| %>
+  <% if @library.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@api.errors.count, "error") %> prohibited this api from being saved:</h2>
+      <h2><%= pluralize(@library.errors.count, "error") %> prohibited this library from being saved:</h2>
 
       <ul>
-      <% @api.errors.full_messages.each do |message| %>
+      <% @library.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -32,8 +32,16 @@
     <%= f.text_field :tags %>
   </div>
   <div class="field">
-    <%= f.label :classification %><br>
-    <%= f.text_field :classification %>
+    <%= f.label :platform %><br>
+    <%= f.text_field :platform %>
+  </div>
+  <div class="field">
+    <%= f.label :developer %><br>
+    <%= f.text_field :developer %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_by %><br>
+    <%= f.text_field :updated_by %>
   </div>
   <div class="actions">
     <%= f.submit %>

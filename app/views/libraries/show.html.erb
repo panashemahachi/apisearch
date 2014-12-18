@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @library.name %>
+</p>
+
+<p>
+  <strong>Tutorial:</strong>
+  <%= @library.tutorial %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @library.description %>
+</p>
+
+<p>
+  <strong>Showcase:</strong>
+  <%= @library.showcase %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @library.tags %>
+</p>
+
+<p>
+  <strong>Platform:</strong>
+  <%= @library.platform %>
+</p>
+
+<p>
+  <strong>Developer:</strong>
+  <%= @library.developer %>
+</p>
+
+<p>
+  <strong>Updated by:</strong>
+  <%= @library.updated_by %>
+</p>
+
+<%= link_to 'Edit', edit_library_path(@library) %> |
+<%= link_to 'Back', root_path %>

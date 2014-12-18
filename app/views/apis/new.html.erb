@@ -1,5 +1,10 @@
 <h1>New api</h1>
 
+<h5>Import multiple </h5>
+<%= form_tag import_apis_path, multipart: true do %>
+<%= file_field_tag :file %>
+<%= submit_tag "Import APIs" %>
+<% end %>
 <%= render 'form' %>
 
 <%= link_to 'Back', apis_path %>

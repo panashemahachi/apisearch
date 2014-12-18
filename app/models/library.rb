@@ -1,11 +1,12 @@
 # Add elasticsearch
 require 'elasticsearch/model'
 
-class Api < ActiveRecord::Base
+class Library < ActiveRecord::Base
 
 	include Elasticsearch::Model
  	include Elasticsearch::Model::Callbacks
 
+	searchkick autocomplete: ['name']
 def self.search(query)
   __elasticsearch__.search(
     {
@@ -30,16 +31,12 @@ def self.search(query)
 end
 Api.import  #Sync elasticsearch with model
 #CSV file has headers, (ignore)
-#def self.import(file)
- #	CSV.foreach(file.path, headers: true) do |row|
- #		Api.create(row.to_hash)
+def self.import(file)
+ 	CSV.foreach(file.path, headers: true) do |row|
+ 		Library.create(row.to_hash)
 
  	#import_file = SmarterCSV.process(file)
  	#Api.create! import_file
- #end
- #end
-
-
-
+ end
+ end
 end
-

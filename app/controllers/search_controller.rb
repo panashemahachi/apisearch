@@ -1,9 +1,9 @@
 class SearchController < ApplicationController
 	def search
 		if params[:q].nil?
-    @apis = []
+    @libraries = []
   else
-    @apis = Api.search params[:q]
+    @libraries = Library.search params[:q]
   end
 	end
 end

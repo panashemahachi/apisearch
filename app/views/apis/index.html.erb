@@ -21,7 +21,7 @@
         <td><%= api.description %></td>
         <td><%= api.showcase %></td>
         <td><%= api.tags %></td>
-        <td><%= api.type %></td>
+        <td><%= api.classification %></td>
         <td><%= link_to 'Show', api %></td>
         <td><%= link_to 'Edit', edit_api_path(api) %></td>
         <td><%= link_to 'Destroy', api, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,5 +31,7 @@
 </table>
 
 <br>
+
+
 
 <%= link_to 'New Api', new_api_path %>

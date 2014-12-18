@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218004938) do
+ActiveRecord::Schema.define(version: 20141218073610) do
 
   create_table "apis", force: true do |t|
     t.string   "name"
@@ -19,7 +19,29 @@ ActiveRecord::Schema.define(version: 20141218004938) do
     t.text     "description"
     t.string   "showcase"
     t.string   "tags"
-    t.string   "type"
+    t.string   "classification"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "developer"
+    t.string   "updated_by"
+  end
+
+  create_table "libraries", force: true do |t|
+    t.string   "name"
+    t.string   "tutorial"
+    t.text     "description"
+    t.string   "showcase"
+    t.string   "tags"
+    t.string   "platform"
+    t.string   "developer"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "platform_id"
+  end
+
+  create_table "platforms", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

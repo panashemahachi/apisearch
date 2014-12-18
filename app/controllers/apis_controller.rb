@@ -10,7 +10,7 @@ class ApisController < ApplicationController
   # GET /apis/1
   # GET /apis/1.json
   def show
-    @api = Api.find params[:name]
+    @api = Api.find params[:id]
   end
 
   # GET /apis/new
@@ -62,6 +62,11 @@ class ApisController < ApplicationController
     end
   end
 
+  def import
+    Api.import(params[:file])
+    redirect_to apis_path, notice: "Api's added successfully"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_api
@@ -70,6 +75,6 @@ class ApisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def api_params
-      params.require(:api).permit(:name, :tutorial, :description, :showcase, :tags, :type)
+      params.require(:api).permit(:name, :description, :tutorial, :showcase, :tags, :classification)
     end
 end
