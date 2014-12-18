@@ -1,0 +1,19 @@
+<h1>Apis</h1>
+ 
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label "Search for" %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Go", name: nil %>
+  </p>
+<% end %>
+ 
+<ul>
+  <% @apis.each do |api| %>
+    <li>
+      <h3>
+        <%= link_to api.name, controller: "apis", action: "show", id: api._id%>
+      </h3>
+    </li>
+  <% end %>
+</ul>

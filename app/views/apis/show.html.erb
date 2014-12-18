@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @api.name %>
+</p>
+
+<p>
+  <strong>Tutorial:</strong>
+  <%= @api.tutorial %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @api.description %>
+</p>
+
+<p>
+  <strong>Showcase:</strong>
+  <%= @api.showcase %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @api.tags %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @api.type %>
+</p>
+
+<%= link_to 'Edit', edit_api_path(@api) %> |
+<%= link_to 'Back', apis_path %>
