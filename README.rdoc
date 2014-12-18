@@ -1,4 +1,8 @@
 == README
 
-API search system with the use of Elastic Search
+Library search system with the use of Elastic Search
 
+Goal:
+
+Query - "Image Download on Android by Square"
+Output - Picasso w/ a nice format that includes tutorials, description, related, maintained?, example projects
