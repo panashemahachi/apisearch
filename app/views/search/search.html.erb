@@ -1,16 +1,19 @@
 <h1>Libraries</h1>
- 
+
+ <a href="#search">Click here</a>
+ <div id="search">
 <%= form_for root_path, method: :get do |f| %>
   <p>
     <%= f.label "Search for" %>
-    <%= text_field_tag :q, params[:q] %>
+    <%= text_field_tag :q, params[:q], :placeholder => "What kind of library are you looking for?" %>
 
-    <%= f.label "Platform" %>
-    <%= collection_select(:library, :platform_id, Platform.all, :id, :name, {}, {
-      :multiple => false })%>
-    <%= submit_tag "Go", name: nil %>
+    <%= f.label "Plaform"  %>
+    <%= collection_select(:library, :platform_id, Platform.all, :id, :platform, {}, {
+      :multiple => false, :selected => "All"}) %>
+  <%= submit_tag "Go", name: nil, :class => "btn btn-primary" %>
   </p>
 <% end %>
+</div>
 
 <%= link_to "Add Library", new_library_path %>
  

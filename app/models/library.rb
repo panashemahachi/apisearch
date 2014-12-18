@@ -2,7 +2,7 @@
 require 'elasticsearch/model'
 
 class Library < ActiveRecord::Base
-
+	belongs_to :platform
 	include Elasticsearch::Model
  	include Elasticsearch::Model::Callbacks
 

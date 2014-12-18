@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218073610) do
+ActiveRecord::Schema.define(version: 20141218075859) do
 
   create_table "apis", force: true do |t|
     t.string   "name"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20141218073610) do
     t.text     "description"
     t.string   "showcase"
     t.string   "tags"
-    t.string   "platform"
     t.string   "developer"
     t.string   "updated_by"
     t.datetime "created_at"
@@ -41,7 +40,7 @@ ActiveRecord::Schema.define(version: 20141218073610) do
   end
 
   create_table "platforms", force: true do |t|
-    t.string   "name"
+    t.string   "platform"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
