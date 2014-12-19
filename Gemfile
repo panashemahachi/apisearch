@@ -20,6 +20,7 @@ gem 'omniauth'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+gem 'link_thumbnailer'
 gem 'searchkick'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

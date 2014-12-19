@@ -1,6 +1,7 @@
 # Add elasticsearch
 require 'elasticsearch/model'
 
+
 class Library < ActiveRecord::Base
 	belongs_to :platform
 	include Elasticsearch::Model

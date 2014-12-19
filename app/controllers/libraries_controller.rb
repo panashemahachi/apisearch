@@ -81,6 +81,6 @@ def autocomplete
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def library_params
-      params.require(:library).permit(:name, :tutorial, :description, :showcase, :tags, :platform, :developer, :updated_by)
+      params.require(:library).permit(:name, :tutorial, :description, :showcase, :tags, :platform, :developer, :updated_by, :link)
     end
 end

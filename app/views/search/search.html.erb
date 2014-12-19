@@ -1,11 +1,10 @@
 <h1>Libraries</h1>
 
- <a href="#search">Click here</a>
- <div id="search">
+ <div class="container">
 <%= form_for root_path, method: :get do |f| %>
   <p>
     <%= f.label "Search for" %>
-    <%= text_field_tag :q, params[:q], :placeholder => "What kind of library are you looking for?" %>
+    <%= text_field_tag :q, params[:q], :placeholder => "What kind of library are you looking for?", :class => "search" %>
 
     <%= f.label "Plaform"  %>
     <%= collection_select(:library, :platform_id, Platform.all, :id, :platform, {}, {
@@ -13,24 +12,42 @@
   <%= submit_tag "Go", name: nil, :class => "btn btn-primary" %>
   </p>
 <% end %>
-</div>
+
+
 
 <%= link_to "Add Library", new_library_path %>
  
-<ul>
+ <div class="row">
   <% @libraries.each do |library| %>
-    <li>
+  <div class="col-md-12 well">
       <h3>
-        <%= link_to library.try(:highlight).try(:title) ? library.highlight.title[0].html_safe : library.name,
-          controller: "libraries",
-          action: "show",
-          id: library._id%>
+        <%= link_to library.name, library.link %>
+          <small>by <%= library.developer %> </small>
       </h3>
+      <% object = LinkThumbnailer.generate(library.link)%>
+      <%= image_tag(object.images.first, height: '100', width: '100', class: 'img-responsive') %>
+      <%= object.description %>
+      <hr>
+      <p><%= library.description %> </p>
+      <hr>
+      <p><%= library.showcase %></p>
+      <div class="col-md-4">
+      <p>Tutorial: <%= library.tutorial %> </p>
+      </div>
+      <div class="col-md-4">
+      <p>Tags: <%= library.tags %> </p>
+      </div>
+
+      <div class="col-md-4">
+      <p>Last Updated by: <%= library.updated_by %></p>
+      </div>
+      <%= link_to 'Edit', edit_library_path(library.id) %>
       <% if library.try(:highlight).try(:text) %>
         <% library.highlight.text.each do |snippet| %>
           <p><%= snippet.html_safe %>...</p>
         <% end %>
       <% end %>
-    </li>
   <% end %>
-</ul>
+  </div>
+</div>
+</div>
